@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rb;
+
+    [Header("Attributes")]
+    [SerializeField] private float speed = 2f;
+
+    private Transform target;
+    private int pathIndex = 0;
+
+    private void Start()
     {
-        
+        target = LevelManager.main.path[pathIndex];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(Vector2.Distance(target.position, transform.position) <= 0.1f) 
+        {
+            pathIndex++;
+
+            if(pathIndex == LevelManager.main.path.Length)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                target = LevelManager.main.path[pathIndex];
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.velocity= direction * speed;
     }
 }
