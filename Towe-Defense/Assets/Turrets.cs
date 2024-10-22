@@ -18,16 +18,16 @@ public class Turrets : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
+    private float timeUntilNextShot;
 
     private void Update()
     {
         if (target == null)
         {
             FindTarget();
-            //    return;
+             return;
         }
-        else 
-        { 
+       
         if (!CheckTargetIsInRange())
         {
             target = null;
@@ -36,13 +36,14 @@ public class Turrets : MonoBehaviour
             else
             {
                 timeUntilFire += Time.deltaTime;
-                if (timeUntilFire >= 1f / bps)
+                if (timeUntilFire <= 0f)
                 {
                     Shoot();
+                timeUntilNextShot = 1f / bps;
                 }
             }
         RotateTowardsTarget();
-      }
+      
     }
     private void Shoot()
     {
@@ -68,11 +69,6 @@ public class Turrets : MonoBehaviour
     private void RotateTowardsTarget()
     {
         if (target == null) return;
-      //  if (!CheckTargetIsInRange())
-       // {
-       //     target = null; 
-       //     return;
-       // }
 
         Vector3 direction = target.position - turretRotationPoint.position;
 
