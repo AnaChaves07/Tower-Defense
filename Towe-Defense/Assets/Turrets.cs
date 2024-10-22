@@ -20,14 +20,17 @@ public class Turrets : MonoBehaviour
         if (target == null)
         {
             FindTarget();
-            return;
+            //    return;
         }
-
-        RotateTowardsTarget();
+        else 
+        { 
         if (!CheckTargetIsInRange())
         {
             target = null;
+            return;
         }
+        RotateTowardsTarget();
+      }
     }
 
     private void FindTarget()
@@ -41,15 +44,31 @@ public class Turrets : MonoBehaviour
 
     private bool CheckTargetIsInRange()
     {
-        return Vector2.Distance(target.position, transform.position) <= targetinRange;
+        if (target == null) return false;
+        return Vector2.Distance(target.position, turretRotationPoint.position) <= targetinRange;
     }
 
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        if (target == null) return;
+      //  if (!CheckTargetIsInRange())
+       // {
+       //     target = null; 
+       //     return;
+       // }
 
+        Vector3 direction = target.position - turretRotationPoint.position;
+
+      
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+ 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        Transform cannon = turretRotationPoint.GetChild(0); 
+
+    
+        cannon.localRotation = Quaternion.RotateTowards(cannon.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
     private void OnDrawGizmosSelected()
     {
