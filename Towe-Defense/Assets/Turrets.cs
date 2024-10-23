@@ -27,22 +27,23 @@ public class Turrets : MonoBehaviour
             FindTarget();
              return;
         }
-       
+        RotateTowardsTarget();
+
         if (!CheckTargetIsInRange())
         {
             target = null;
             return;
         }
-            else
-            {
+            
+            
                 timeUntilFire += Time.deltaTime;
-                if (timeUntilFire <= 0f)
+                if (timeUntilFire >= 1f/bps)
                 {
                     Shoot();
-                timeUntilNextShot = 1f / bps;
+                timeUntilFire = 0f;
                 }
-            }
-        RotateTowardsTarget();
+            
+        
       
     }
     private void Shoot()
