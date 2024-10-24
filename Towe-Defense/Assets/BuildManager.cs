@@ -9,16 +9,16 @@ public class BuildManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject[] towerPrefabs;
 
-    private int selectedTower = 0;
+    private int SelectedTower = 0;
 
     private void Awake()
     {
         main = this;
     }
 
-    public GameObject GetSelectedToer()
+    public GameObject GetSelectedTower()
     {
-        return towerPrefabs[selectedTower];
+        return towerPrefabs[SelectedTower];
     }
 
 }

@@ -27,24 +27,20 @@ public class Turrets : MonoBehaviour
             FindTarget();
              return;
         }
+       
         RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {
             target = null;
             return;
-        }
-            
-            
+        }    
                 timeUntilFire += Time.deltaTime;
                 if (timeUntilFire >= 1f/bps)
                 {
                     Shoot();
                 timeUntilFire = 0f;
                 }
-            
-        
-      
     }
     private void Shoot()
     {
@@ -69,20 +65,16 @@ public class Turrets : MonoBehaviour
 
     private void RotateTowardsTarget()
     {
-        if (target == null) return;
 
-        Vector3 direction = target.position - turretRotationPoint.position;
-
-      
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-
- 
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-
-        Transform cannon = turretRotationPoint.GetChild(0); 
-
-    
-        cannon.localRotation = Quaternion.RotateTowards(cannon.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
+        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime );
+     //   if (target == null) return;
+       // Vector3 direction = target.position - turretRotationPoint.position;   
+      //  float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+       // Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+       // Transform cannon = turretRotationPoint.GetChild(0);   
+       // cannon.localRotation = Quaternion.RotateTowards(cannon.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
     private void OnDrawGizmosSelected()
     {
