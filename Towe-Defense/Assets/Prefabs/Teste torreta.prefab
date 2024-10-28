@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7794525928451722515}
   - component: {fileID: 6431565289346098343}
   m_Layer: 0
-  m_Name: Turrets
+  m_Name: Teste torreta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,9 +85,9 @@ MonoBehaviour:
     m_Bits: 64
   bulletPrefab: {fileID: 1819550290302467687, guid: b83ddbd4a5955f24faf995b464c1b0a6, type: 3}
   firingPoint: {fileID: 8314689256091300683}
-  targetinRange: 3
-  rotationSpeed: 50
-  bps: 1
+  targetinRange: 10
+  rotationSpeed: 200
+  bps: 0.5
 --- !u!1 &8447943400575324280
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,15 @@ PrefabInstance:
       value: -1409306145
       objectReference: {fileID: 0}
     - target: {fileID: 1000833922525642784, guid: 528f60aec4f2747ed9a8c7694b313e24, type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000833922525642784, guid: 528f60aec4f2747ed9a8c7694b313e24, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000833922525642784, guid: 528f60aec4f2747ed9a8c7694b313e24, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000833922525642784, guid: 528f60aec4f2747ed9a8c7694b313e24, type: 3}
@@ -287,16 +295,20 @@ PrefabInstance:
       value: base
       objectReference: {fileID: 0}
     - target: {fileID: 5545991504278673167, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545991504278673167, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
       propertyPath: m_Color.b
-      value: 0.5283019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5545991504278673167, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
       propertyPath: m_Color.g
-      value: 0.5283019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5545991504278673167, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
       propertyPath: m_Color.r
-      value: 0.5283019
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5545991504278673167, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
       propertyPath: m_SortingLayer
