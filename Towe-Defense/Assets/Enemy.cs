@@ -12,9 +12,11 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
     private int pathIndex = 0;
+    private float baseSpeed;
 
     private void Start()
     {
+        baseSpeed = speed;
         target = LevelManager.main.path[pathIndex];
     }
 
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
 
             if(pathIndex == LevelManager.main.path.Length)
             {
+                Spawn.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
@@ -40,5 +43,16 @@ public class Enemy : MonoBehaviour
     {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.velocity= direction * speed;
+    }
+
+    public void UpdateSpeed(float newSpeed)
+    {
+     speed = newSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        speed = baseSpeed;
+
     }
 }
