@@ -88,8 +88,8 @@ public class Spawn : MonoBehaviour
         return Mathf.RoundToInt(baseEnemies*Mathf.Pow(currentWave, difficultScalingFactor));
     }
 
-    private int EnemiesPerSecond()
+   private int EnemiesPerSecond()
     {
-        return (int)Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultScalingFactor), 0f, enemiesPerSecondCap);
+     return (int)Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultScalingFactor), 0f, enemiesPerSecondCap);
     }
 }
