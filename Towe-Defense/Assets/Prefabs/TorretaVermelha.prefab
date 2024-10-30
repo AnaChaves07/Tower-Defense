@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7794525928451722515}
-  - component: {fileID: 6431565289346098343}
+  - component: {fileID: -5784737920219664326}
   m_Layer: 0
   m_Name: TorretaVermelha
   m_TagString: Untagged
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 2125688248306377497}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6431565289346098343
+--- !u!114 &-5784737920219664326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5971150651974974677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c3ccce74b3722044a65fc2db8e86f26, type: 3}
+  m_Script: {fileID: 11500000, guid: 7704277107160c44a8b478e7f05010cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 2125688248306377497}
@@ -85,9 +85,9 @@ MonoBehaviour:
     m_Bits: 64
   bulletPrefab: {fileID: 1819550290302467687, guid: b83ddbd4a5955f24faf995b464c1b0a6, type: 3}
   firingPoint: {fileID: 8314689256091300683}
-  targetinRange: 10
+  targetinRange: 3
   rotationSpeed: 200
-  bps: 0.5
+  bps: 2
 --- !u!1 &8447943400575324280
 GameObject:
   m_ObjectHideFlags: 0
