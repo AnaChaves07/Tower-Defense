@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1147019454508591831}
   - component: {fileID: 5789314763318710537}
   - component: {fileID: 9220293288544892446}
-  - component: {fileID: 6313244076172126434}
   - component: {fileID: 3618036745480655558}
   m_Layer: 6
   m_Name: 1Enemy1
@@ -165,24 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1147019454508591831}
   speed: 2
---- !u!114 &6313244076172126434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2699443020057747188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c70bd2482197e04f9d210c9753c7785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 2699443020057747188}
-  baseEnemies: 8
-  enemiesPerSecond: 1
-  timeBetweenWaves: 5
-  difficultScalingFactor: 0.75
 --- !u!114 &3618036745480655558
 MonoBehaviour:
   m_ObjectHideFlags: 0
