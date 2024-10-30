@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 
-public class Spawn : MonoBehaviour
+public class Spawn : MonoBehaviour // Gerencia o spawn dos inimigos
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
@@ -33,12 +33,12 @@ public class Spawn : MonoBehaviour
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
-    void Start()
+    void Start()//Inicia o controle de ondas.
     {
        StartCoroutine(StartWave());
        // SpawnEnemy();
     }
-    void Update()
+    void Update()//Controla a lógica de spawn de inimigos.
     {
         if (!isSpawning) return;
 
@@ -57,11 +57,11 @@ public class Spawn : MonoBehaviour
         }
         
     }
-    private void EnemyDestroyed()
+    private void EnemyDestroyed()//Atualiza o número de inimigos vivos.
     {
         enemiesAlive--; 
     }
-    private IEnumerator StartWave()
+    private IEnumerator StartWave()//Controla o início de uma nova onda.
     {
         yield return new WaitForSeconds(timeBetweenWaves);
          isSpawning = true;
@@ -69,15 +69,15 @@ public class Spawn : MonoBehaviour
         eps = EnemiesPerSecond();
 
     }
-    private void EndWave()
+    private void EndWave()// Finaliza a onda atual e inicia a próxima.
     {
         isSpawning = false;
-       // timeSinceLastSpawn = 0f;
+      
         StartCoroutine(StartWave());
         currentWave++;
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy()//Instancia um novo inimigo.
     {
 
         int index = Random.Range(0, enemyPrefabs.Length);
@@ -86,12 +86,12 @@ public class Spawn : MonoBehaviour
         enemiesAlive++;
     
     }
-    private int EnemiesPerWave()
+    private int EnemiesPerWave()//Calcula o número de inimigos por onda.
     {
         return Mathf.RoundToInt(baseEnemies*Mathf.Pow(currentWave, difficultScalingFactor));
     }
 
-   private int EnemiesPerSecond()
+   private int EnemiesPerSecond() //Calcula a taxa de spawn de inimigos.
     {
      return (int)Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultScalingFactor), 0f, enemiesPerSecondCap);
     }
