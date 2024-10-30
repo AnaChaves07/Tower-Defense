@@ -36,19 +36,19 @@ public class Spawn : MonoBehaviour
     void Start()
     {
        StartCoroutine(StartWave());
-        SpawnEnemy();
+       // SpawnEnemy();
     }
     void Update()
     {
         if (!isSpawning) return;
 
         timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= (1f / eps) && enemiesLeftSpawn > 0)
+        while (timeSinceLastSpawn >= (1f / eps) && enemiesLeftSpawn > 0)
         {
             SpawnEnemy();
             enemiesLeftSpawn--;
-           enemiesAlive++;
-            timeSinceLastSpawn = 0f;
+       //   enemiesAlive++;
+            timeSinceLastSpawn -= (1f / eps);
         }
 
         if(enemiesAlive == 0 && enemiesLeftSpawn == 0)
@@ -72,7 +72,7 @@ public class Spawn : MonoBehaviour
     private void EndWave()
     {
         isSpawning = false;
-        timeSinceLastSpawn = 0f;
+       // timeSinceLastSpawn = 0f;
         StartCoroutine(StartWave());
         currentWave++;
     }

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971150651974974677, guid: e73436187ff0e664d8ffe2215afde9e6, type: 3}
       propertyPath: m_Name
-      value: TurretaGelo Variant
+      value: TorreGelo
       objectReference: {fileID: 0}
     - target: {fileID: 7794525928451722515, guid: e73436187ff0e664d8ffe2215afde9e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -126,6 +126,6 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  targetinRange: 2
+  targetinRange: 3
   aps: 4
   freezeTime: 1
