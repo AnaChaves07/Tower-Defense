@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+
 
 public class Turrets2 : BaseTurret//Segunda torreta que atira duas vezes nos inimigos, com herança 
 { 

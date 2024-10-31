@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class TurretSlomo : BaseTurret //Classe para a torreta de gelo que desacelera os inimigos, com herança 
 {

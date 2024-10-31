@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using Random = UnityEngine.Random;
-
 
 public class Spawn : MonoBehaviour // Gerencia o spawn dos inimigos
 {
