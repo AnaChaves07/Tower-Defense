@@ -5,14 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour//Define as informações gerais do inimigo
 {
     [Header("References")]
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;// Referência ao componente Rigidbody2D do inimigo.
 
     [Header("Attributes")]
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 2f;// Velocidade com que o inimigo se move.
 
-    private Transform target;
-    private int pathIndex = 0;
-    private float baseSpeed;
+    private Transform target;// O próximo ponto do caminho que o inimigo deve seguir.
+    private int pathIndex = 0;// Índice que indica a posição atual do inimigo no caminho.
+    private float baseSpeed;// Velocidade base do inimigo, usada para reset.
 
     private void Start()//Salva a velocidade do inimigo
     {

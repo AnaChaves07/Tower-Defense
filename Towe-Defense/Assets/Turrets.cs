@@ -6,19 +6,19 @@ using UnityEngine;
 public class Turrets : BaseTurret //Torreta normal com herança 
 {
     [Header("References")]
-    [SerializeField] private Transform turretRotationPoint;
-    [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firingPoint;
+    [SerializeField] private Transform turretRotationPoint;// Ponto que rotaciona a torre para mirar.
+    [SerializeField] private LayerMask enemyMask;// Máscara que identifica os inimigos.
+    [SerializeField] private GameObject bulletPrefab;// O prefab da bala que a torre dispara.
+    [SerializeField] private Transform firingPoint; // O local onde a bala é disparada.
 
     [Header("Attribute")]
-    [SerializeField] private float targetinRange = 5f;
-    [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float bps = 1f;
+    [SerializeField] private float targetinRange = 5f;// Distância em que a torre pode atacar inimigos.
+    [SerializeField] private float rotationSpeed = 5f;// Velocidade de rotação da torre.
+    [SerializeField] private float bps = 1f;// Número de disparos por segundo.
 
-    private Transform target;
-    private float timeUntilFire;
-    private float timeUntilNextShot;
+    private Transform target;// O inimigo que a torre está mirando.
+    private float timeUntilFire; // Controle do tempo até o próximo disparo.
+    //private float timeUntilNextShot;
 
     private void Update()//Verifica se existe algum alvo e se tiver chama os outros métodos 
     {

@@ -6,7 +6,7 @@ using TMPro;
 public class Menu : MonoBehaviour//Gerencia a interface do menu
 {
     [Header("References")]
-    [SerializeField] TextMeshProUGUI currencyUI;
+    [SerializeField] TextMeshProUGUI currencyUI;//Texto responsável pelo dinheiro
 
     private void OnGUI() //Atualiza o texto da interface 
     {

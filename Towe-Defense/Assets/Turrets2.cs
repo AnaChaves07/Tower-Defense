@@ -9,19 +9,19 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Turrets2 : BaseTurret//Segunda torreta que atira duas vezes nos inimigos, com herança 
 { 
 [Header("References")]
-    [SerializeField] private UnityEngine.Transform turretRotationPoint;
-[SerializeField] private LayerMask enemyMask;
-[SerializeField] private GameObject bulletPrefab;
-[SerializeField] private UnityEngine.Transform firingPoint;
+    [SerializeField] private UnityEngine.Transform turretRotationPoint;// Ponto que rotaciona a torre para mirar.
+    [SerializeField] private LayerMask enemyMask;// Máscara que identifica os inimigos.
+    [SerializeField] private GameObject bulletPrefab;// O prefab da bala que a torre dispara.
+    [SerializeField] private UnityEngine.Transform firingPoint;// O local onde a bala é disparada.
 
-[Header("Attribute")]
-[SerializeField] private float targetinRange = 5f;
-[SerializeField] private float rotationSpeed = 5f;
-[SerializeField] private float bps = 2f;
+    [Header("Attribute")]
+[SerializeField] private float targetinRange = 5f;// Distância em que a torre pode atacar inimigos.
+    [SerializeField] private float rotationSpeed = 5f;// Velocidade de rotação da torre.
+    [SerializeField] private float bps = 2f;// Número de disparos por segundo.
 
-private UnityEngine.Transform target;
-private float timeUntilFire;
-private float timeUntilNextShot;
+    private UnityEngine.Transform target;// O inimigo que a torre está mirando.
+    private float timeUntilFire;// Controle do tempo até o próximo disparo.
+   // private float timeUntilNextShot;
 
 private void Update()//Verifica se existe algum alvo e se tiver chama os outros métodos
     {

@@ -7,9 +7,9 @@ public class BuildManager : MonoBehaviour// Controla a seleção das torres que po
     public static BuildManager main;
 
     [Header("References")]
-    [SerializeField] private Tower[] towers; 
+    [SerializeField] private Tower[] towers; // Lista de torres disponíveis para construção.
 
-    private int SelectedTower = 0;
+    private int SelectedTower = 0;// Índice da torre atualmente selecionada.
 
     private void Awake()//Define a instancia da classe
     {

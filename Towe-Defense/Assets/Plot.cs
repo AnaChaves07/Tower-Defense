@@ -5,11 +5,12 @@ using UnityEngine;
 public class Plot : MonoBehaviour//Controla os quadrados onde pode ser construido as torretas
 {
     [Header("References")]
-    [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Color hoverColor;
+    [SerializeField] private SpriteRenderer sr;// Componente que controla a aparência do plot.
+    [SerializeField] private Color hoverColor;// Cor que o plot assume quando o mouse passa por cima.
 
-    private GameObject tower;
-    private Color startColor;
+
+    private GameObject tower;// Referência à torre construída neste plot.
+    private Color startColor;// Cor original do plot.
 
     void Start()//Armazena a cor original do quadrado 
     {

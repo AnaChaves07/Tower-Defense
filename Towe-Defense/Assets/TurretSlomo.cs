@@ -7,17 +7,17 @@ using static UnityEngine.GraphicsBuffer;
 public class TurretSlomo : BaseTurret //Classe para a torreta de gelo que desacelera os inimigos, com herança 
 {
     [Header("References")]
-    [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firingPoint;
+    [SerializeField] private LayerMask enemyMask;// Máscara que determina quais objetos são considerados inimigos.
+    [SerializeField] private GameObject bulletPrefab;// Prefab da bala que será disparada pela torre.
+    [SerializeField] private Transform firingPoint;// Ponto de onde a bala será disparada.
 
     [Header("Attribute")]
-    [SerializeField] private float targetinRange = 5f;
-    [SerializeField] private float aps = 4f;
-    [SerializeField] private float freezeTime = 1f;
+    [SerializeField] private float targetinRange = 5f;// Alcance em que a torre pode afetar inimigos.
+    [SerializeField] private float aps = 4f;// Taxa de disparo (ataques por segundo).
+    [SerializeField] private float freezeTime = 1f;// Tempo que os inimigos ficarão desacelerados.
 
-    private Transform target;
-    private float timeUntilFire;
+    private Transform target;// O alvo atual que a torre está visando.
+    private float timeUntilFire; // Temporizador para controlar a taxa de disparo.
     private void Update()//Checa se é hora de desacelerar inimigos. 
     {
         timeUntilFire += Time.deltaTime;
