@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildManager : MonoBehaviour
+public class BuildManager : MonoBehaviour// Controla a seleção das torres que podem ser construídas no jogo.
 {
     public static BuildManager main;
 
@@ -11,17 +11,17 @@ public class BuildManager : MonoBehaviour
 
     private int SelectedTower = 0;
 
-    private void Awake()
+    private void Awake()//Define a instancia da classe
     {
         main = this;
     }
 
-    public Tower GetSelectedTower()
+    public Tower GetSelectedTower()//Retorna quando torre que está  selecionada
     {
         return towers[SelectedTower];
     }
 
-    public void SetSelectTower(int _SelectedTower)
+    public void SetSelectTower(int _SelectedTower)//Permite que o espaço selecionado fique ativo para colocar a torre 
     {
         SelectedTower = _SelectedTower;
     }

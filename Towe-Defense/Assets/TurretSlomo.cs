@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using static UnityEngine.GraphicsBuffer;
-//using static UnityEngine.GraphicsBuffer;
 
-public class TurretSlomo : BaseTurret
+public class TurretSlomo : BaseTurret //Classe para a torreta de gelo que desacelera os inimigos, com herança 
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
@@ -19,7 +18,7 @@ public class TurretSlomo : BaseTurret
 
     private Transform target;
     private float timeUntilFire;
-    private void Update()
+    private void Update()//Checa se é hora de desacelerar inimigos. 
     {
         timeUntilFire += Time.deltaTime;
         if (timeUntilFire >= 1f / aps)
@@ -28,7 +27,7 @@ public class TurretSlomo : BaseTurret
             timeUntilFire = 0f;
         }
     }
-     private void FreezeEnemies()
+     private void FreezeEnemies()//Congela os inimigos por um tempo e devolve sua velocidade depois
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetinRange, (Vector2)transform.position, 0f, enemyMask);
 
@@ -44,19 +43,19 @@ public class TurretSlomo : BaseTurret
         }
     }
 
-    private IEnumerator ResetEnemySpeed(Enemy em)
+    private IEnumerator ResetEnemySpeed(Enemy em)//Espera um tempo e então restaura a velocidade do inimigo.
     {
         yield return new WaitForSeconds(freezeTime);
         em.ResetSpeed();
     }
-    public override void Shoot()
+    public override void Shoot()//Usa o prefab da bala para atirar 
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
         FreezeEnemies ();
     }
-    public override void FindTarget()
+    public override void FindTarget()//Procura por inimigos e define o primeiro encontrado como alvo.
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetinRange, (Vector2)transform.position, 0f, enemyMask);
         if (hits.Length > 0)
