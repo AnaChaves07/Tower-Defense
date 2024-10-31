@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Turrets : BaseTurret //Torreta normal com herança 
@@ -71,11 +70,7 @@ public class Turrets : BaseTurret //Torreta normal com herança
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime );
      
     }
-    private void OnDrawGizmosSelected()//Desenha um círculo no editor para mostrar a área de ataque da torre.
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetinRange);
-    }
+   
 
 
 }

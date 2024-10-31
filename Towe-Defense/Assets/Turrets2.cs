@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -72,11 +71,5 @@ private void RotateTowardsTarget()//Rotaciona a torre em direção ao alvo.
     turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
 }
-private void OnDrawGizmosSelected()//Desenha um círculo no editor para mostrar a área de ataque da torre.
-    {
-    Handles.color = Color.cyan;
-    Handles.DrawWireDisc(transform.position, transform.forward, targetinRange);
-}
-
 
 }
