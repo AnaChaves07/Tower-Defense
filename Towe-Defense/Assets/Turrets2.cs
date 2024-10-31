@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class Turrets2 : MonoBehaviour
+public class Turrets2 : BaseTurret
 { 
 [Header("References")]
     [SerializeField] private UnityEngine.Transform turretRotationPoint;
@@ -44,13 +44,13 @@ private void Update()
         timeUntilFire = 0f;
     }
 }
-private void Shoot()
+public override void Shoot()
 {
     GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
     Bullet bulletScript = bulletObj.GetComponent<Bullet>();
     bulletScript.SetTarget(target);
 }
-private void FindTarget()
+public override void FindTarget()
 {
     RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetinRange, (Vector2)transform.position, 0f, enemyMask);
     if (hits.Length > 0)

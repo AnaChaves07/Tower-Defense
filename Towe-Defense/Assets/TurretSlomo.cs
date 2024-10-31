@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static UnityEngine.GraphicsBuffer;
 //using static UnityEngine.GraphicsBuffer;
 
-public class TurretSlomo : MonoBehaviour
+public class TurretSlomo : BaseTurret
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
 
     [Header("Attribute")]
     [SerializeField] private float targetinRange = 5f;
     [SerializeField] private float aps = 4f;
     [SerializeField] private float freezeTime = 1f;
 
+    private Transform target;
     private float timeUntilFire;
     private void Update()
     {
@@ -44,6 +48,21 @@ public class TurretSlomo : MonoBehaviour
     {
         yield return new WaitForSeconds(freezeTime);
         em.ResetSpeed();
+    }
+    public override void Shoot()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+        bulletScript.SetTarget(target);
+        FreezeEnemies ();
+    }
+    public override void FindTarget()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetinRange, (Vector2)transform.position, 0f, enemyMask);
+        if (hits.Length > 0)
+        {
+            target = hits[0].transform;
+        }
     }
 
 
